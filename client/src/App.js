@@ -1,21 +1,17 @@
 import React, { Component } from 'react';
 import axios from 'axios';
-import WTILineCharts from './components/visualize';
+import InterestRateLineCharts from './components/visualize';
 
 
 
 class App extends Component {
   state = {
-    wtiPriceData: {},
+    intestRateData: []
   }
   componentDidMount() {
-    axios.get(`/api/data`)
+    axios.get(`/api/us/interest-rate`)
       .then(({data}) => {
-        const wtiPrice = {
-          name: 'WTI-PRICE',
-          data,
-        }
-        this.setState({ wtiPriceData: wtiPrice })
+        this.setState({ intestRateData: data })
       })
       .catch ((err) => {
         console.log(err);
@@ -23,11 +19,10 @@ class App extends Component {
   }
   
   render() {
-    const { wtiPriceData } = this.state;
-    console.log(wtiPriceData);
+    const { intestRateData } = this.state;
     return (
       <div>
-        {wtiPriceData.data ? <WTILineCharts wtiPriceData={wtiPriceData}/>: 'Loading'}
+        {intestRateData.length ? <InterestRateLineCharts intestRateData={intestRateData}/>: 'Loading'}
       </div>
     );
   }
