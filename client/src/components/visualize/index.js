@@ -1,30 +1,47 @@
 import React, { Component } from 'react';
-import { LineChart, Line, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import { LineChart, ResponsiveContainer, Line, XAxis, YAxis, Tooltip, CartesianGrid } from 'recharts';
+import styled from 'styled-components';
+
+
+const ChartLayout = styled.div`
+  width: 90%;
+`;
+const ChartContainer = styled.div`
+  flex: 1;
+  display: flex;
+  flex-direction: column;
+`;
+
+const Title = styled.div`
+  margin: 1rem 0rem;
+  font-size: 1.5rem;
+  font-weight: 700;
+`;
 
 class InterestRateLineCharts extends Component {
   render() {
-    const { intestRateData } = this.props;
+    const { usingData } = this.props;
     return (
-      <div>
-        {intestRateData.map(({indexName, observations}, index) => {
+      <ChartLayout>
+        {usingData.map(({indexName, observations}, index) => {
           return (
-          <div key={`${indexName}-${(index + 1)*10}`}>
-            <h1>{indexName}</h1>
-            <LineChart
-              width={1200}
-              height={400}
-              data={observations}
-              margin={{ top: 5, right: 30, left: 20, bottom: 5 }}>
-            >
-              <CartesianGrid strokeDasharray="3 3" />
-              <XAxis dataKey='date' />
-              <YAxis />
-              <Tooltip />
-              <Line type="linear" dataKey="value" stroke="#8884d8" dot={false} />
-            </LineChart>
-          </div>
+          <ChartContainer key={`${indexName}-${(index + 1)*10}`}>
+            <Title>{indexName}</Title>
+            <ResponsiveContainer  width={800} height={400}>
+              <LineChart
+                data={observations}
+                margin={{ top: 5, right: 0, left: 0, bottom: 5 }}>
+              >
+                <CartesianGrid strokeDasharray="3 3" />
+                <XAxis dataKey='date' />
+                <YAxis />
+                <Tooltip />
+                <Line type="linear" dataKey="value" stroke="#8884d8" dot={false} />
+              </LineChart>
+            </ResponsiveContainer>
+          </ChartContainer>
         )})}
-      </div>
+      </ChartLayout>
     );
   }
 }

@@ -4,7 +4,7 @@ exports.accumulateFredData = (indexCodeName, indexCode) => {
   return indexCode.map((economicIndex) => {
     return new Promise((resolve, reject) => {
       const url = indexCodeName[economicIndex].includes('Ago') ? 
-      (`https://api.stlouisfed.org/fred/series/observations?series_id=${economicIndex}&units=pc1&api_key=${process.env.FRED_API_KEY}&file_type=json`) : 
+      (`https://api.stlouisfed.org/fred/series/observations?series_id=${economicIndex.split('(')[0]}&units=pc1&api_key=${process.env.FRED_API_KEY}&file_type=json`) : 
       (`https://api.stlouisfed.org/fred/series/observations?series_id=${economicIndex}&api_key=${process.env.FRED_API_KEY}&file_type=json`);
       axios.get(url)
       .then(({ data }) => {
