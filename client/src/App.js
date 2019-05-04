@@ -1,7 +1,7 @@
 import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Rotuer, Route, Switch } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
-import { Home, UsInterestRate, PJWIndex, LeadingIndex }from './components/indexList';
+import { Home, UsInterestRate, PJWIndex, LeadingIndex, GDPIndex, WTIPrice }from './components/indexList';
 import Menu from './components/menu';
 
 
@@ -25,8 +25,6 @@ const RouteContainer = styled.div`
   margin-left: 1rem;
 `;
 
-
-
 class App extends Component {
   render() {
     return (
@@ -43,6 +41,8 @@ class App extends Component {
                 <Route path="/us-interest-rate" component={UsInterestRate} />
                 <Route path="/pjw-index" component={PJWIndex} />
                 <Route path="/leading-index" component={LeadingIndex} />
+                <Route path="/gdp-index" component={GDPIndex} />
+                <Route path="/wti-price" component={WTIPrice} />
               </Switch>
             </RouteContainer>
           </Rotuer>

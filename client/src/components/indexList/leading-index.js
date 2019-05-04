@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import InterestRateLineCharts from '../visualize';
+import IndexChart from '../visualize';
 
 const FlexContainer = styled.div`
   flex: 8;
@@ -27,7 +27,7 @@ class LeadingIndex extends Component {
     console.log(leadingIndexData);
     return (
       <FlexContainer>
-          {leadingIndexData.length ? <InterestRateLineCharts usingData={leadingIndexData} />: 'Loading'}
+          {leadingIndexData.length ? <IndexChart usingData={leadingIndexData} />: 'Loading'}
       </FlexContainer>
     );
   }

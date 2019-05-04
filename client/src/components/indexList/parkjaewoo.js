@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import InterestRateLineCharts from '../visualize';
+import IndexChart from '../visualize';
 
 const FlexContainer = styled.div`
   flex: 8;
@@ -24,10 +24,9 @@ class PJWIndex extends Component {
   }
   render() {
     const { pjwIndexData } = this.state;
-    console.log(pjwIndexData);
     return (
       <FlexContainer>
-          {pjwIndexData.length ? <InterestRateLineCharts usingData={pjwIndexData}/>: 'Loading'}
+          {pjwIndexData.length ? <IndexChart usingData={pjwIndexData}/>: 'Loading'}
       </FlexContainer>
     );
   }

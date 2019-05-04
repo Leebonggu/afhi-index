@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 import axios from 'axios';
 import styled from 'styled-components';
-import IndexChart from '../visualize';
+import InterestRateLineCharts from '../visualize';
 
 const FlexContainer = styled.div`
   flex: 8;
@@ -9,27 +9,27 @@ const FlexContainer = styled.div`
   height: 100%;
 `;
 
-class UsInterestRate extends Component {
+class GDPIndex extends Component {
   state = {
-    intestRateData: []
+    gdpIndexData: []
   }
   componentDidMount() {
-    axios.get(`/api/us/interest-rate`)
+    axios.get(`/api/us/gdp-index`)
       .then(({data}) => {
-        this.setState({ intestRateData: data })
+        this.setState({ gdpIndexData: data })
       })
       .catch ((err) => {
         console.log(err);
       })
   }
   render() {
-    const { intestRateData } = this.state;
+    const { gdpIndexData } = this.state;
     return (
       <FlexContainer>
-          {intestRateData.length ? <IndexChart usingData={intestRateData}/>: 'Loading'}
+          {gdpIndexData.length ? <InterestRateLineCharts usingData={gdpIndexData}/>: 'Loading'}
       </FlexContainer>
     );
   }
 }
 
-export default UsInterestRate;
+export default GDPIndex;

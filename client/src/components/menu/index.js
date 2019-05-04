@@ -33,6 +33,8 @@ const Menu = () => (
       <StyledLink to='/us-interest-rate'>미국 기준금리 관련 지표</StyledLink>
       <StyledLink to='/leading-index'>선행지표</StyledLink>
       <StyledLink to='/pjw-index'>PJW-Index</StyledLink>
+      <StyledLink to='/gdp-index'>GDP-Index</StyledLink>
+      <StyledLink to='/wti-price'>WTI-Price-Index</StyledLink>
     </MenuItem>
   </MenuDiv>
 );

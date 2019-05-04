@@ -18,7 +18,7 @@ const Title = styled.div`
   font-weight: 700;
 `;
 
-class InterestRateLineCharts extends Component {
+class IndexChart extends Component {
   render() {
     const { usingData } = this.props;
     return (
@@ -30,7 +30,7 @@ class InterestRateLineCharts extends Component {
             <ResponsiveContainer  width={800} height={400}>
               <LineChart
                 data={observations}
-                margin={{ top: 5, right: 0, left: 0, bottom: 5 }}>
+                margin={{ top: 5, right: 10, left: 10, bottom: 5 }}>
               >
                 <CartesianGrid strokeDasharray="3 3" />
                 <XAxis dataKey='date' />
@@ -46,4 +46,4 @@ class InterestRateLineCharts extends Component {
   }
 }
 
-export default InterestRateLineCharts;
+export default IndexChart;

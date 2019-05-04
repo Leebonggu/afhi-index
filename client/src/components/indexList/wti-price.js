@@ -9,27 +9,27 @@ const FlexContainer = styled.div`
   height: 100%;
 `;
 
-class UsInterestRate extends Component {
+class WTIPrice extends Component {
   state = {
-    intestRateData: []
+    witPriceIndex: []
   }
   componentDidMount() {
-    axios.get(`/api/us/interest-rate`)
+    axios.get(`/api/us/gdp-index`)
       .then(({data}) => {
-        this.setState({ intestRateData: data })
+        this.setState({ witPriceIndex: data })
       })
       .catch ((err) => {
         console.log(err);
       })
   }
   render() {
-    const { intestRateData } = this.state;
+    const { witPriceIndex } = this.state;
     return (
       <FlexContainer>
-          {intestRateData.length ? <IndexChart usingData={intestRateData}/>: 'Loading'}
+          {witPriceIndex.length ? <IndexChart usingData={witPriceIndex}/>: 'Loading'}
       </FlexContainer>
     );
   }
 }
 
-export default UsInterestRate;
+export default WTIPrice;
