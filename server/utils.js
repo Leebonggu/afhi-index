@@ -8,12 +8,37 @@ exports.accumulateFredData = (indexCodeName, indexCode) => {
       (`https://api.stlouisfed.org/fred/series/observations?series_id=${economicIndex}&api_key=${process.env.FRED_API_KEY}&file_type=json`);
       axios.get(url)
       .then(({ data }) => {
-        const result = {indexName:indexCodeName[economicIndex] ,...data};
+        const summaryMeanDataByDate = makeSummaryByDate(data);
+        const result = {indexName:indexCodeName[economicIndex], ...summaryMeanDataByDate ,...data};
         resolve(result);
       });
     });
   });
 }
+
+const makeSummaryByDate = ({observations: data}) => {
+  const differenceByOneDate = Number(data[data.length-1].value - data[data.length-2].value).toFixed(4);
+  const meanLatestThree = makeEachValueToMean(data.slice(data.length-3, data.length));
+  const meanLatestSeven = makeEachValueToMean(data.slice(data.length-7, data.length));
+  const meanLatestfifteen = makeEachValueToMean(data.slice(data.length-15, data.length));
+  const meanLatestThirty = makeEachValueToMean(data.slice(data.length-30, data.length));
+  return {
+    differenceByOneDate,
+    meanLatestThree,
+    meanLatestSeven,
+    meanLatestfifteen,
+    meanLatestThirty,
+  }
+};
+
+const makeEachValueToMean = (slicedData) => {
+  let acc = 0;
+  slicedData.forEach(({ value}) => {
+    acc += Number(value);
+  });
+  return (acc / slicedData.length).toFixed(5);
+}
+
 
 /*
 Parameters

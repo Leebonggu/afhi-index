@@ -2,7 +2,8 @@ import React, { Component, Fragment } from 'react';
 import { BrowserRouter as Rotuer, Route, Switch } from 'react-router-dom';
 import styled, { createGlobalStyle } from 'styled-components';
 import { Home, UsInterestRate, PJWIndex, LeadingIndex, GDPIndex, WTIPrice }from './components/indexList';
-import Menu from './components/menu';
+import MenuList from './components/menu';
+
 
 
 const GlobalStyle = createGlobalStyle`
@@ -33,7 +34,7 @@ class App extends Component {
         <Layout>
           <Rotuer>
             <MenuContainer>
-              <Menu />
+              <MenuList />
             </MenuContainer>
             <RouteContainer>
               <Route exact path="/" component={Home} />

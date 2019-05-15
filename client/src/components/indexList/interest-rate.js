@@ -26,6 +26,9 @@ class UsInterestRate extends Component {
     const { intestRateData } = this.state;
     return (
       <FlexContainer>
+          <div>
+            설명과 최근상태가 들어간다.
+          </div>
           {intestRateData.length ? <IndexChart usingData={intestRateData}/>: 'Loading'}
       </FlexContainer>
     );
