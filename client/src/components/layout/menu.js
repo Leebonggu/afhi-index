@@ -5,7 +5,7 @@ import { Menu } from 'antd';
 const MenuList = () => {
     return (
     <>
-      <Menu>
+      <Menu mode="inline">
         <Menu.Item key="home">
           <Link to='/'>Home</Link>
         </Menu.Item>

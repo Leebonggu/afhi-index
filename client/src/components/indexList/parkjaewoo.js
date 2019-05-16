@@ -7,6 +7,7 @@ const FlexContainer = styled.div`
   flex: 8;
   width: 80%;
   height: 100%;
+  margin-bottom: 1rem;
 `;
 
 class PJWIndex extends Component {
@@ -24,6 +25,7 @@ class PJWIndex extends Component {
   }
   render() {
     const { pjwIndexData } = this.state;
+    console.log(pjwIndexData);
     return (
       <FlexContainer>
           {pjwIndexData.length ? <IndexChart usingData={pjwIndexData}/>: 'Loading'}

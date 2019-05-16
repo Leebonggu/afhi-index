@@ -17,7 +17,7 @@ exports.accumulateFredData = (indexCodeName, indexCode) => {
 }
 
 const makeSummaryByDate = ({observations: data}) => {
-  const differenceByOneDate = Number(data[data.length-1].value - data[data.length-2].value).toFixed(4);
+  const differenceByOneDate = Number(data[data.length-1].value - data[data.length-2].value).toFixed(3);
   const meanLatestThree = makeEachValueToMean(data.slice(data.length-3, data.length));
   const meanLatestSeven = makeEachValueToMean(data.slice(data.length-7, data.length));
   const meanLatestfifteen = makeEachValueToMean(data.slice(data.length-15, data.length));
@@ -32,11 +32,20 @@ const makeSummaryByDate = ({observations: data}) => {
 };
 
 const makeEachValueToMean = (slicedData) => {
+  console.log(slicedData);
   let acc = 0;
-  slicedData.forEach(({ value}) => {
-    acc += Number(value);
+  let length = slicedData.length;
+  slicedData.forEach(({ value }) => {
+    if (!Number(value)) {
+      // 숫자가 아니면 랭스를 하나 줄여줌
+      length -= 1;
+      console.log(length);
+    } else if (Number(value)) {
+      acc += Number(value);
+    };
   });
-  return (acc / slicedData.length).toFixed(5);
+  console.log(slicedData.length, (acc / slicedData.length).toFixed(3));
+  return (acc / length).toFixed(3);
 }
 
 

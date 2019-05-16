@@ -9,10 +9,23 @@ router.get('/gdp-index', (req, res) => {
   const allFredData = accumulateFredData(indexCodeName, indexCode);
   if(allFredData) {
     Promise.all(allFredData).then(value => {
-      const usingForData = value.map(({ indexName, observations }) => {
+      const usingForData = value.map(({
+        indexName,
+        differenceByOneDate,
+        meanLatestThree,
+        meanLatestSeven,
+        meanLatestfifteen,
+        meanLatestThirty,
+        observations
+      }) => {
         return {
           indexName,
-          observations
+          differenceByOneDate,
+          meanLatestThree,
+          meanLatestSeven,
+          meanLatestfifteen,
+          meanLatestThirty,
+          observations,
         }
       });
       return res.send(usingForData);

@@ -7,6 +7,7 @@ const FlexContainer = styled.div`
   flex: 8;
   width: 80%;
   height: 100%;
+  margin-bottom: 1rem;
 `;
 
 class LeadingIndex extends Component {
