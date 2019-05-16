@@ -13,7 +13,7 @@ const ObservationsSummaryInformation = ({
   const economicDataInfo = {
     '최근 관측시점':latestDate,
     '최근 관측값' : latestValue,
-    '최근-1이전 관측값':differenceByOneDate,
+    '최근-1이전 차이':differenceByOneDate,
     '최근 3관측치 평균': meanLatestThree,
     '최근 7관측치 평균': meanLatestSeven,
     '최근 15관측치 평균': meanLatestfifteen,
@@ -21,10 +21,10 @@ const ObservationsSummaryInformation = ({
   };
   return (
     <div>
-      <Row type="flex" justify="start">
+      <Row gutter={48}>
         {Object.entries(economicDataInfo).map(([name, value], index) => {
           return (
-            < Col span={3} key={`${name}-${index}`}>
+            < Col span={6} key={`${name}-${index}`}>
               {index > 0 ? (
                 <Statistic
                   title={`${name}`}
@@ -39,9 +39,9 @@ const ObservationsSummaryInformation = ({
                     color: '#cf1322',
                   }}
                   prefix={
-                    (value > 0 && name === '최근-1이전 관측값')
+                    (value > 0 && name === '최근-이전 차이')
                     ? <Icon type="arrow-up" /> 
-                    : (value < 0 && name === '최근-1이전 관측값') ?
+                    : (value < 0 && name === '최근-이전 차이') ?
                     <Icon type="arrow-down" /> 
                     : ""}
                   precision={4}

@@ -32,7 +32,6 @@ const ChartNumberInformation = styled.div`
 class IndexChart extends Component {
   render() {
     const { usingData } = this.props;
-    console.log('usingData', usingData);
     return (
       <div>
         <ChartLayout>
