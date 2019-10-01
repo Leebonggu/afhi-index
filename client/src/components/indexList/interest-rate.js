@@ -41,7 +41,6 @@ class UsInterestRate extends Component {
     axios.get(`/api/us/interest-rate`)
       .then(({data}) => {
         const filteredData = this.dataRefiningForLastestInfo(data);
-
         this.setState({ 
           intestRateData: data,
           latestInfoData: filteredData,

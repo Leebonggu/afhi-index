@@ -21,7 +21,7 @@ router.get('/leading-index', (req, res) => {
     'NEWORDER': 'Manufacturers\' New Orders: Nondefense Capital Goods Excluding Aircraft',
     'PERMIT': 'New Private Housing Units Authorized by Building Permits',
     'SP500': 'S&P 500',
-    'M2': 'M2 Money Stock ',
+    'M2': 'M2 Money Stock(Billions of Dollars)',
     'M2(Percent Change from Year Ago)': 'M2 Money Stock(Percent Change from Year Ago)',
     'T10Y2Y': '10-Year Treasury Constant Maturity Minus 2-Year Treasury Constant Maturity',
     'T10YFF': '10-Year Treasury Constant Maturity Minus Federal Funds Rate',

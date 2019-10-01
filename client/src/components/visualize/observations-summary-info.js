@@ -39,9 +39,9 @@ const ObservationsSummaryInformation = ({
                     color: '#cf1322',
                   }}
                   prefix={
-                    (value > 0 && name === '최근-이전 차이')
+                    (value > 0 && name === '최근-1이전 차이')
                     ? <Icon type="arrow-up" /> 
-                    : (value < 0 && name === '최근-이전 차이') ?
+                    : (value < 0 && name === '최근-1이전 차이') ?
                     <Icon type="arrow-down" /> 
                     : ""}
                   precision={4}

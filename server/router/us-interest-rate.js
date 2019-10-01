@@ -4,6 +4,7 @@ const { accumulateFredData } = require('../utils');
 router.get('/interest-rate', (req, res) => {
   const indexCodeName = {
     'FEDFUNDS': 'US Effective Federal Funds Rate',
+    'EFFR': 'Effective Federal Funds Rate(Daily)',
     'CPIAUCSL(Percent Change from Year Ago)': 'CPI: All Items(전체물가-Percent Change from Year Ago)',
     'CPILFESL(Percent Change from Year Ago)': 'CPI: All Items Less Food and Energy(핵심물가-Percent Change from Year Ago)',
     'PCE(Percent Change from Year Ago)': 'Personal Consumption Expenditures (PCE-Percent Change from Year Ago)',
@@ -19,6 +20,7 @@ router.get('/interest-rate', (req, res) => {
   };
   const indexCode = [
   'FEDFUNDS',
+  'EFFR',
   'CPIAUCSL(Percent Change from Year Ago)',
   'CPILFESL(Percent Change from Year Ago)',
   'PCE(Percent Change from Year Ago)',
